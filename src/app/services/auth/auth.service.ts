@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import * as jwtDecode from 'jwt-decode';
 
 @Injectable()
 export class AuthService {
   userDetails = null;
-  constructor() { }
+  constructor() {}
 
   getCurrentUserDetails() {
     if (localStorage.getItem('user_token')) {
