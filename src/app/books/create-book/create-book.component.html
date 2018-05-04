@@ -1,0 +1,61 @@
+<form
+#createBookForm = "ngForm"
+(ngSubmit)="onsubmit(createBookForm.value)"
+>
+<div class="form-group">
+  <label for="exampleInputEmail1">Title</label>
+  <input
+    name="title"
+    id="title"
+    type="text"
+    class="form-control"
+    placeholder="Enter Title"
+    ngModel
+    >
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Author</label>
+  <input
+    name="author"
+    type="text"
+    class="form-control"
+    id="author"
+    placeholder="Author"
+    ngModel
+  >
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Description</label>
+  <input 
+    type="text"
+    name="description"
+    class="form-control"
+    id="description"
+    placeholder="Description"
+    ngModel
+  >
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Quantity</label>
+  <input 
+    type="number"
+    name="quantity"
+    class="form-control"
+    id="quantity"
+    placeholder="Quantity"
+    ngModel
+  >
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Cover</label>
+  <input 
+    type="text"
+    name="cover"
+    class="form-control"
+    id="cover"
+    placeholder="Link to cover of book"
+    ngModel
+  >
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>

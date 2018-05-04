@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <div class="img-responsive"><img src={{cover}}/></div>
+  <div>Title: {{title}}</div>
+  <div>Description: {{description}}</div>
+  <div >quantity: {{quantity}}</div>
+  <div>Author: {{author}}</div>
+  <!-- <div>{{bookId}}</div> -->
+  <div *ngIf="!isBorrowed && singlePage">
+    <button (click)="onBookBorrow()">Borrow</button>
+  </div>
+  <div *ngIf="isBorrowed && singlePage">
+    <button (click)="onBookReturn()">Return</button>
+  </div>
+  <div *ngIf="!singlePage"><a href="/books/{{bookId}}">View Book</a></div>
+</div>

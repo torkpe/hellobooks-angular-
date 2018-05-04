@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <app-book
+          [title]="singleBook.title"
+          [author]="singleBook.author"
+          [cover]="singleBook.cover"
+          [quantity]="singleBook.quantity"
+          [description]="singleBook.description"
+          [bookId]="singleBook.id"
+          [singlePage]="singlePage"
+          [isBorrowed]="isBorrowed"
+          (borrowBook)="borrowBook()"
+          (returnBook)="returnBook()"
+        >
+      </app-book>
+        </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
