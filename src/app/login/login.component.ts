@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { EventEmitterService } from '../services/event/event.emitter.service';
 import { LoginService } from '../services/login/login.service';
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   @Output() login = new EventEmitter();
 
   constructor(private Login: LoginService,
-    private eventEmitter: EventEmitterService
+    private eventEmitter: EventEmitterService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
         response => {
           this.setAuthToken(response);
           this.eventEmitter.emitOnLogin();
+          this.router.navigate(['/books']);
         },
         error => console.log(error)
       );
