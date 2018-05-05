@@ -10,7 +10,7 @@ export class BookComponent implements OnInit {
   @Input() title: String;
   @Input() author: String;
   @Input() cover: String;
-  @Input() quantity: Number;
+  @Input() quantity: any;
   @Input() description: String;
   @Input() bookId: String;
   @Input() singlePage: Boolean;
@@ -25,9 +25,11 @@ export class BookComponent implements OnInit {
   }
   onBookBorrow() {
     this.borrowBook.emit();
+    this.quantity = this.quantity - 1;
   }
 
   onBookReturn() {
     this.returnBook.emit();
+    this.quantity = this.quantity + 1;
   }
 }

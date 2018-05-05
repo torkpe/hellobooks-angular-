@@ -4,7 +4,6 @@
   <div>Description: {{description}}</div>
   <div >quantity: {{quantity}}</div>
   <div>Author: {{author}}</div>
-  <!-- <div>{{bookId}}</div> -->
   <div *ngIf="!isBorrowed && singlePage">
     <button (click)="onBookBorrow()">Borrow</button>
   </div>
