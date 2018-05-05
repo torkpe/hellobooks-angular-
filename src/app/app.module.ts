@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SignupService } from './services/signup/signup.service';
 import { LoginService } from './services/login/login.service';
 import { AuthService } from './services/auth/auth.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { BooksService } from './services/books/books.service';
 import { EventEmitterService } from './services/event/event.emitter.service';
 import { BooksComponent } from './books/books.component';
@@ -39,13 +40,35 @@ import { CreateBookComponent } from './books/create-book/create-book.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: LandingPageComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent },
-      { path: 'books', component: BooksComponent },
-      { path: 'books', component: BooksComponent },
-      { path: 'books/:id', component: SingleBookComponent },
-      { path: 'new-book', component: CreateBookComponent },
+      {
+        path: '',
+        component: LandingPageComponent,
+
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+
+      },
+      {
+        path: 'books',
+        component: BooksComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'books/:id',
+        component: SingleBookComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'new-book',
+        component: CreateBookComponent,
+        canActivate: [AuthGuardService]
+      },
     ])
   ],
   providers: [
@@ -58,7 +81,8 @@ import { CreateBookComponent } from './books/create-book/create-book.component';
       multi: true
     },
     BooksService,
-    EventEmitterService
+    EventEmitterService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
